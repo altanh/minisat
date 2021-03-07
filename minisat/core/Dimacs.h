@@ -52,7 +52,7 @@ static void parse_DIMACS_main(B& in, Solver& S, bool strictp = false) {
     int cnt     = 0;
     for (;;){
         skipWhitespace(in);
-        if (*in == EOF) break;
+        if (*in == EOF || *in == '%') break;
         else if (*in == 'p'){
             if (eagerMatch(in, "p cnf")){
                 vars    = parseInt(in);
